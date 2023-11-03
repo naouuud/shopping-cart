@@ -1,16 +1,11 @@
-import { StyledHero } from "../styled/StyledHero";
-import { StyledNavBar } from "../styled/StyledNavBar";
+import SharedLayout from "./SharedLayout";
 import { StyledShop } from "../styled/StyledShop";
-import { StyledFooter } from "../styled/StyledFooter";
 
 const Shopping = () => {
   return (
-    <>
-      <StyledHero />
-      <StyledNavBar />
+    <SharedLayout>
       <StyledShop />
-      <StyledFooter />
-    </>
+    </SharedLayout>
   );
 };
 
