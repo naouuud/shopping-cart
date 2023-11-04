@@ -1,23 +1,27 @@
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import AddToCart from "./AddToCart";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ className, product }) => {
   return (
-    <>
-      <h3>{product.title}</h3>
+    <div className={className}>
+      <h3>
+        <Link to={`products/${product.id}`}>{product.title}</Link>
+      </h3>
       <img src="" alt={`Image of ${product.title}`} />
-      <p>{product.description}</p>
-      <p>{product.price}</p>
-      <p>
+      <div className="description">{product.description}</div>
+      <div className="price">{product.price}</div>
+      <div className="rating">
         {product.rating.rate} ({product.rating.count} votes)
-      </p>
+      </div>
       <hr />
       <AddToCart id={product.id} />
-    </>
+    </div>
   );
 };
 
 ProductCard.propTypes = {
+  className: PropTypes.string,
   product: PropTypes.object,
 };
 

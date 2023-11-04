@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 
 const AddToCart = ({ id }) => {
-  const addToCart = () => {};
+  const addToCart = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <form onSubmit={addToCart}>

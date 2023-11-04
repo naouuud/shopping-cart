@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ProductCard from "./ProductCard";
+import { StyledProductCard } from "../styled/StyledProductCard";
 import PropTypes from "prop-types";
 
 const ShopContainer = ({ data }) => {
@@ -18,10 +18,10 @@ const ShopContainer = ({ data }) => {
         ? data
             .filter((product) => product.category === category)
             .map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <StyledProductCard key={product.id} product={product} />
             ))
         : data.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <StyledProductCard key={product.id} product={product} />
           ))}
     </>
   );

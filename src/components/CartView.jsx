@@ -1,12 +1,18 @@
 import SharedLayout from "./SharedLayout";
-import CartLoader from "./CartLoader";
+import Cart from "./Cart";
+import PropTypes from "prop-types";
 
-const CartView = () => {
+const CartView = ({ cart, setCart }) => {
   return (
     <SharedLayout>
-      <CartLoader />
+      <Cart cart={cart} setCart={setCart} />
     </SharedLayout>
   );
+};
+
+CartView.propTypes = {
+  cart: PropTypes.array,
+  setCart: PropTypes.func,
 };
 
 export default CartView;

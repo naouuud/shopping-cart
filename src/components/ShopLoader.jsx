@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import useData from "./FetchData";
-import ErrorPage from "./ErrorPage";
+import useData from "./useData";
+import ShopError from "./ShopError";
 import LoadingPage from "./LoadingPage";
 import ShopContainer from "./ShopContainer";
 
@@ -8,11 +8,11 @@ const ShopLoader = () => {
   const { data, error, loading } = useData("https://fakestoreapi.com/products");
 
   return loading ? (
-    <LoadingPage />
+    <LoadingPage item={"shop"} />
   ) : data ? (
     <ShopContainer data={data} />
   ) : (
-    <ErrorPage error={error} />
+    <ShopError error={error} />
   );
 };
 

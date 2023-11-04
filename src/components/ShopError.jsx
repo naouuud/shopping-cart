@@ -1,14 +1,14 @@
 import PropTypes from "prop-types";
 
-const ErrorPage = ({ error }) => {
+const ShopError = ({ error }) => {
   console.log(error);
   return (
     <h1>Apologies, the shop has failed to load! Please refresh the page.</h1>
   );
 };
 
-ErrorPage.propTypes = {
+ShopError.propTypes = {
   error: PropTypes.object,
 };
 
-export default ErrorPage;
+export default ShopError;
