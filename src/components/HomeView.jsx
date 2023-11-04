@@ -1,7 +1,7 @@
 import SharedLayout from "./SharedLayout";
 import ShopLoader from "./ShopLoader";
 
-const Home = () => {
+const HomeView = () => {
   return (
     <SharedLayout>
       <ShopLoader />
@@ -9,4 +9,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeView;
