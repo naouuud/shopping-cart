@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import HomeView from "./HomeView";
 import CartView from "./CartView";
 import ErrorView from "./ErrorView";
-import ProductView from "./ProductView";
+// import ProductContainer from "./ProductContainer";
+import ShopContainer from "./ShopContainer";
+import ProductFilter from "./ProductFilter";
 
 const MainRouter = ({ cart, setCart }) => {
   const router = createBrowserRouter([
@@ -11,15 +13,20 @@ const MainRouter = ({ cart, setCart }) => {
       path: "/",
       element: <HomeView />,
       errorElement: <ErrorView />,
+      children: [
+        {
+          path: "",
+          element: <ShopContainer />,
+        },
+        {
+          path: "products/:id",
+          element: <ProductFilter />,
+        },
+      ],
     },
     {
       path: "/cart",
       element: <CartView cart={cart} setCart={setCart} />,
-      errorElement: <ErrorView />,
-    },
-    {
-      path: "/products/:id",
-      element: <ProductView />,
       errorElement: <ErrorView />,
     },
   ]);

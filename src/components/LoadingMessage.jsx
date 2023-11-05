@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 
-const LoadingPage = ({ item }) => {
+const LoadingMessage = ({ item }) => {
   return <h1>The {item} is loading...</h1>;
 };
 
-LoadingPage.propTypes = {
+LoadingMessage.propTypes = {
   item: PropTypes.string,
 };
 
-export default LoadingPage;
+export default LoadingMessage;

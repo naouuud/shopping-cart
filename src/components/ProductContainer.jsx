@@ -1,16 +1,11 @@
 import PropTypes from "prop-types";
 import AddToCart from "./AddToCart";
-import useData from "./useData";
-import LoadingPage from "./LoadingPage";
+import LoadingMessage from "./LoadingMessage";
 import ProductError from "./ProductError";
 
-const Product = ({ id }) => {
-  const { data, loading, error } = useData(
-    `https://fakestoreapi.com/products/${id}`
-  );
-  const product = data;
+const ProductContainer = ({ product, error, loading }) => {
   return loading ? (
-    <LoadingPage item="product" />
+    <LoadingMessage item="product" />
   ) : product ? (
     <>
       <h1>{product.title}</h1>
@@ -28,8 +23,10 @@ const Product = ({ id }) => {
   );
 };
 
-export default Product;
-
-Product.propTypes = {
-  id: PropTypes.string,
+ProductContainer.propTypes = {
+  product: PropTypes.object,
+  error: PropTypes.object,
+  loading: PropTypes.bool,
 };
+
+export default ProductContainer;

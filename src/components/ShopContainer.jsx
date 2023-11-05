@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { StyledProductCard } from "../styled/StyledProductCard";
 import PropTypes from "prop-types";
+import { useOutletContext } from "react-router-dom";
+import ShopError from "./ShopError";
+import LoadingMessage from "./LoadingMessage";
 
-const ShopContainer = ({ data }) => {
+const ShopContainer = () => {
+  const { data, error, loading } = useOutletContext();
   const [category, setCategory] = useState("");
-
-  return (
+  return loading ? (
+    <LoadingMessage item="shop" />
+  ) : data ? (
     <>
       <select onChange={(e) => setCategory(e.target.value)}>
         <option value="">All</option>
@@ -24,6 +29,8 @@ const ShopContainer = ({ data }) => {
             <StyledProductCard key={product.id} product={product} />
           ))}
     </>
+  ) : (
+    <ShopError error={error} />
   );
 };
 
