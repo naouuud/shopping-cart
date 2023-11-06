@@ -1,12 +1,17 @@
-import PropTypes from "prop-types";
+import { useContext } from "react";
+import CartContext from "./CartContext";
+import CartItem from "./CartItem";
 
-const Cart = ({ cart, setCart }) => {
-  return <h1>Cart placeholder</h1>;
-};
+const Cart = () => {
+  const { cart } = useContext(CartContext);
 
-Cart.propTypes = {
-  cart: PropTypes.array,
-  setCart: PropTypes.func,
+  return Object.keys(cart).length === 0 ? (
+    <h1>Your cart is empty</h1>
+  ) : (
+    Object.keys(cart).map((key) => (
+      <CartItem key={key} id={key} quantity={cart[key]} />
+    ))
+  );
 };
 
 export default Cart;

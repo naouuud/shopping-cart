@@ -7,7 +7,7 @@ import ErrorView from "./ErrorView";
 import ShopContainer from "./ShopContainer";
 import ProductFilter from "./ProductFilter";
 
-const MainRouter = ({ cart, setCart }) => {
+const MainRouter = () => {
   const router = createBrowserRouter([
     {
       path: "/",
@@ -26,7 +26,7 @@ const MainRouter = ({ cart, setCart }) => {
     },
     {
       path: "/cart",
-      element: <CartView cart={cart} setCart={setCart} />,
+      element: <CartView />,
       errorElement: <ErrorView />,
     },
   ]);
