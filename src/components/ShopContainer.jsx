@@ -29,9 +29,9 @@ const ShopContainer = () => {
             <StyledProductCard key={product.id} product={product} />
           ))}
     </>
-  ) : (
+  ) : error ? (
     <ShopError error={error} />
-  );
+  ) : null;
 };
 
 ShopContainer.propTypes = {

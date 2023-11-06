@@ -3,7 +3,7 @@ import AddToCart from "./AddToCart";
 import LoadingMessage from "./LoadingMessage";
 import ProductError from "./ProductError";
 
-const ProductContainer = ({ product, error, loading }) => {
+const ProductContainer = ({ product, filterError, dataError, loading }) => {
   return loading ? (
     <LoadingMessage item="product" />
   ) : product ? (
@@ -18,14 +18,17 @@ const ProductContainer = ({ product, error, loading }) => {
       <hr />
       <AddToCart id={product.id} />
     </>
-  ) : (
-    <ProductError error={error} />
-  );
+  ) : dataError ? (
+    <ProductError error={dataError} />
+  ) : filterError ? (
+    <ProductError error={filterError} />
+  ) : null;
 };
 
 ProductContainer.propTypes = {
   product: PropTypes.object,
-  error: PropTypes.object,
+  filterError: PropTypes.object,
+  dataError: PropTypes.object,
   loading: PropTypes.bool,
 };
 

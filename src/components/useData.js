@@ -12,7 +12,7 @@ const useData = (url) => {
         setData(data);
         setError(null);
       } catch (error) {
-        setError(new Error(error));
+        setError(new Error("Data fetching failed"));
         setData(null);
       } finally {
         setLoading(false);

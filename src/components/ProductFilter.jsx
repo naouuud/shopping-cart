@@ -4,17 +4,26 @@ import ProductContainer from "./ProductContainer";
 
 const ProductFilter = () => {
   const { id } = useParams();
-  const { data, error, loading } = useOutletContext();
+  let { data, error, loading } = useOutletContext();
   const [product, setProduct] = useState(null);
+  const [filterError, setFilterError] = useState(null);
 
   useEffect(() => {
     if (data) {
       const nextProduct = data.find((item) => item.id == id);
-      setProduct(nextProduct);
+      if (nextProduct) setProduct(nextProduct);
+      else setFilterError(new Error("Product not found"));
     }
   }, [data, id]);
 
-  return <ProductContainer product={product} error={error} loading={loading} />;
+  return (
+    <ProductContainer
+      product={product}
+      filterError={filterError}
+      dataError={error}
+      loading={loading}
+    />
+  );
 };
 
 export default ProductFilter;
