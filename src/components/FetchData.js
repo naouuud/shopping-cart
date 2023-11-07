@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
+import DataContext from "./DataContext";
 
-const useData = (url) => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+const FetchData = (url) => {
+  const { setData, setError, setLoading } = useContext(DataContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,9 +18,9 @@ const useData = (url) => {
       }
     };
     fetchData();
-  }, [url]);
+  });
 
-  return { data, error, loading };
+  return;
 };
 
-export default useData;
+export default FetchData;

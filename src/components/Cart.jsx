@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import CartContext from "./CartContext";
+import DataContext from "./DataContext";
 import CartItem from "./CartItem";
 
 const Cart = () => {
-  const { cart } = useContext(CartContext);
-
+  const { cart, data } = useContext(DataContext);
+  console.log(data);
   return Object.keys(cart).length === 0 ? (
     <h1>Your cart is empty</h1>
   ) : (

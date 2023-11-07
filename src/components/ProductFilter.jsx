@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import { useParams, useOutletContext } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { useParams } from "react-router-dom";
 import ProductContainer from "./ProductContainer";
+import DataContext from "./DataContext";
 
 const ProductFilter = () => {
   const { id } = useParams();
-  let { data, error, loading } = useOutletContext();
+  const { data, error, loading } = useContext(DataContext);
   const [product, setProduct] = useState(null);
   const [filterError, setFilterError] = useState(null);
 

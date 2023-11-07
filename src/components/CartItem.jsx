@@ -4,7 +4,7 @@ const CartItem = ({ id, quantity }) => {
   return (
     <ul>
       <li>
-        Item #{id}: {quantity}
+        Product #{id}: {quantity}
       </li>
     </ul>
   );

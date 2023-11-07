@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { useContext, useState } from "react";
-import CartContext from "./CartContext";
+import DataContext from "./DataContext";
 
 const AddToCart = ({ id }) => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart } = useContext(DataContext);
   const [quantity, setQuantity] = useState(1);
   // console.log(cart);
 

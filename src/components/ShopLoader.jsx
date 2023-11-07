@@ -1,15 +1,13 @@
-import PropTypes from "prop-types";
-import useData from "./useData";
+import DataContext from "./DataContext";
+import { useContext } from "react";
+import FetchData from "./FetchData";
 import { Outlet } from "react-router-dom";
 
 const ShopLoader = () => {
-  const { data, error, loading } = useData("https://fakestoreapi.com/products");
+  const { data } = useContext(DataContext);
+  !data && FetchData("https://fakestoreapi.com/products");
 
-  return <Outlet context={{ data, error, loading }} />;
-};
-
-ShopLoader.propTypes = {
-  className: PropTypes.string,
+  return <Outlet />;
 };
 
 export default ShopLoader;
