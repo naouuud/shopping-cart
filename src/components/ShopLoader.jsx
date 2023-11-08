@@ -1,21 +1,10 @@
-import DataContext from "./DataContext";
-import { useContext } from "react";
-import FetchData from "./FetchData";
+import useData from "./useData";
 import { Outlet } from "react-router-dom";
 
 const ShopLoader = () => {
-  const { data, error, loading } = useContext(DataContext);
+  useData("https://fakestoreapi.com/products");
 
-  return data || error ? (
-    <Outlet />
-  ) : loading ? (
-    <>
-      <Outlet />
-      <FetchData url={"https://fakestoreapi.com/products"} />
-    </>
-  ) : (
-    <FetchData url={"https://fakestoreapi.com/products"} />
-  );
+  return <Outlet />;
 };
 
 export default ShopLoader;
