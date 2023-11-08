@@ -4,10 +4,18 @@ import FetchData from "./FetchData";
 import { Outlet } from "react-router-dom";
 
 const ShopLoader = () => {
-  const { data } = useContext(DataContext);
-  !data && FetchData("https://fakestoreapi.com/products");
+  const { data, error, loading } = useContext(DataContext);
 
-  return <Outlet />;
+  return data || error ? (
+    <Outlet />
+  ) : loading ? (
+    <>
+      <Outlet />
+      <FetchData url={"https://fakestoreapi.com/products"} />
+    </>
+  ) : (
+    <FetchData url={"https://fakestoreapi.com/products"} />
+  );
 };
 
 export default ShopLoader;

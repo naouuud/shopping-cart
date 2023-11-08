@@ -3,8 +3,8 @@ import DataContext from "./DataContext";
 import CartItem from "./CartItem";
 
 const Cart = () => {
-  const { cart, data } = useContext(DataContext);
-  console.log(data);
+  const { cart } = useContext(DataContext);
+
   return Object.keys(cart).length === 0 ? (
     <h1>Your cart is empty</h1>
   ) : (

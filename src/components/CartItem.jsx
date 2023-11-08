@@ -1,12 +1,16 @@
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import DataContext from "./DataContext";
 
 const CartItem = ({ id, quantity }) => {
+  const { data } = useContext(DataContext);
+  const product = data.find((item) => item.id == id);
+
   return (
-    <ul>
-      <li>
-        Product #{id}: {quantity}
-      </li>
-    </ul>
+    <>
+      <h3>{product.title}</h3>
+      <h3>{quantity}</h3>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react";
 import DataContext from "./DataContext";
 
-const FetchData = (url) => {
+const FetchData = ({ url }) => {
   const { setData, setError, setLoading } = useContext(DataContext);
 
   useEffect(() => {
