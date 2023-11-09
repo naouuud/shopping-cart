@@ -1,33 +1,39 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import PropTypes from "prop-types";
-import HomeView from "./HomeView";
-import CartView from "./CartView";
+import Root from "./Root";
 import ErrorView from "./ErrorView";
-// import ProductContainer from "./ProductContainer";
+import ShopLoader from "./ShopLoader";
 import ShopContainer from "./ShopContainer";
 import ProductFilter from "./ProductFilter";
+import Cart from "./Cart";
 
 const MainRouter = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <HomeView />,
+      element: <Root />,
       errorElement: <ErrorView />,
       children: [
         {
           path: "",
-          element: <ShopContainer />,
+          element: <ShopLoader />,
+          children: [
+            {
+              path: "",
+              element: <ShopContainer />,
+            },
+            {
+              path: "products/:id",
+              element: <ProductFilter />,
+            },
+          ],
         },
         {
-          path: "products/:id",
-          element: <ProductFilter />,
+          path: "/cart",
+          element: <Cart />,
+          errorElement: <ErrorView />,
         },
       ],
-    },
-    {
-      path: "/cart",
-      element: <CartView />,
-      errorElement: <ErrorView />,
     },
   ]);
 

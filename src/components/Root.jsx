@@ -2,20 +2,21 @@ import { StyledHero } from "../styled/StyledHero";
 import { StyledNavBar } from "../styled/StyledNavBar";
 import { StyledFooter } from "../styled/StyledFooter";
 import PropTypes from "prop-types";
+import { Outlet } from "react-router-dom";
 
-const SharedLayout = ({ children }) => {
+const Root = () => {
   return (
     <>
       <StyledHero />
       <StyledNavBar />
-      {children}
+      <Outlet />
       <StyledFooter />
     </>
   );
 };
 
-SharedLayout.propTypes = {
+Root.propTypes = {
   children: PropTypes.element,
 };
 
-export default SharedLayout;
+export default Root;
