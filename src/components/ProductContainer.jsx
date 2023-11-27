@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import LoadingMessage from "./LoadingMessage";
 import ProductError from "./ProductError";
-import Product from "./Product";
+import StyledProduct from "../styled/StyledProduct";
 
 const ProductContainer = ({ product, filterError, dataError, loading }) => {
   return loading ? (
     <LoadingMessage item="product" />
   ) : product ? (
-    <Product product={product} />
+    <StyledProduct product={product} />
   ) : dataError ? (
     <ProductError error={dataError} />
   ) : filterError ? (

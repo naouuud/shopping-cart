@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import DataContext from "./DataContext";
-import { generatePriceList } from "./generatePriceList";
+import generatePriceList from "./generatePriceList";
 
 const Total = () => {
   const { cart, data } = useContext(DataContext);

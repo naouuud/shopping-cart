@@ -6,6 +6,7 @@ import ShopLoader from "./ShopLoader";
 import ShopContainer from "./ShopContainer";
 import ProductFilter from "./ProductFilter";
 import Cart from "./Cart";
+import CartError from "./CartError";
 
 const MainRouter = () => {
   const router = createBrowserRouter([
@@ -31,7 +32,7 @@ const MainRouter = () => {
         {
           path: "/cart",
           element: <Cart />,
-          errorElement: <ErrorView />,
+          errorElement: <CartError />,
         },
       ],
     },

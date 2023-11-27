@@ -1,34 +1,33 @@
 import PropTypes from "prop-types";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import DataContext from "./DataContext";
 
 const AddToCart = ({ id }) => {
   const { cart, setCart } = useContext(DataContext);
-  const [quantity, setQuantity] = useState(1);
-  // console.log(cart);
 
   const addToCart = (e) => {
     e.preventDefault();
     const nextCart = cart[id]
-      ? { ...cart, [id]: cart[id] + parseInt(quantity) }
-      : { ...cart, [id]: parseInt(quantity) };
+      ? { ...cart, [id]: cart[id] + 1 }
+      : { ...cart, [id]: 1 };
     setCart(nextCart);
-    setQuantity(1);
+  };
+
+  const removeFromCart = (e) => {
+    e.preventDefault();
+    const nextCart = cart[id]
+      ? { ...cart, [id]: cart[id] - 1 >= 0 ? cart[id] - 1 : 0 }
+      : { ...cart, [id]: 0 };
+    setCart(nextCart);
   };
 
   return (
-    <form onSubmit={addToCart}>
-      <label htmlFor={`quantity-${id}`}>Quantity:</label>
-      <input
-        onChange={(e) => setQuantity(e.target.value)}
-        type="number"
-        id={`quantity-${id}`}
-        min={1}
-        max={10}
-        value={quantity}
-      />
-      <button>Add To Cart</button>
-    </form>
+    <>
+      <span>Quantity:</span>
+      <button onClick={removeFromCart}>-</button>
+      <span>{cart[id] ? cart[id] : 0}</span>
+      <button onClick={addToCart}>+</button>
+    </>
   );
 };
 

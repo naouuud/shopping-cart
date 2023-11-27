@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 const ErrorView = () => {
   return (
-    <div>
+    <h1>
       Apologies shopper, we are having a hard time finding the page you
       requested! Please <Link to="/">return to the homepage</Link> and try
       again.
-    </div>
+    </h1>
   );
 };
 

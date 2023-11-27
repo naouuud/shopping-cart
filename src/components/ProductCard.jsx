@@ -8,10 +8,10 @@ const ProductCard = ({ className, product }) => {
       <h3>
         <Link to={`products/${product.id}`}>{product.title}</Link>
       </h3>
-      <img src="" alt={`Image of ${product.title}`} />
-      <div className="description">{product.description}</div>
-      <div className="price">{product.price}</div>
-      <div className="rating">
+      <img src={product.image} alt={`Image of ${product.title}`} />
+      <div className='description'>{product.description}</div>
+      <div className='price'>{product.price}</div>
+      <div className='rating'>
         {product.rating.rate} ({product.rating.count} votes)
       </div>
       <hr />

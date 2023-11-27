@@ -15,9 +15,11 @@ const Cart = () => {
     </>
   ) : (
     <>
-      {Object.keys(cart).map((key) => (
-        <CartItem key={key} id={key} quantity={cart[key]} />
-      ))}
+      {Object.keys(cart).map((key) =>
+        cart[key] > 0 ? (
+          <CartItem key={key} id={parseInt(key)} quantity={cart[key]} />
+        ) : null
+      )}
       <Total />
     </>
   );

@@ -1,11 +1,13 @@
-export const generatePriceList = (data) => {
+const generatePriceList = (data) => {
   const priceList = {};
 
   if (data) {
-    data.map((item) => {
+    data.forEach((item) => {
       priceList[item.id] = item.price;
     });
   }
-  console.log("price list generated");
+
   return priceList;
 };
+
+export default generatePriceList;
