@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useContext } from "react";
 import DataContext from "./DataContext";
 
-const AddToCart = ({ id }) => {
+const ChangeQuantity = ({ id }) => {
   const { cart, setCart } = useContext(DataContext);
 
   const addToCart = (e) => {
@@ -31,8 +31,8 @@ const AddToCart = ({ id }) => {
   );
 };
 
-AddToCart.propTypes = {
+ChangeQuantity.propTypes = {
   id: PropTypes.number,
 };
 
-export default AddToCart;
+export default ChangeQuantity;

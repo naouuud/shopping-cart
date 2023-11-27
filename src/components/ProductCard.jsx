@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import AddToCart from "./AddToCart";
+import ChangeQuantity from "./ChangeQuantity";
 
 const ProductCard = ({ className, product }) => {
   return (
@@ -15,7 +15,7 @@ const ProductCard = ({ className, product }) => {
         {product.rating.rate} ({product.rating.count} votes)
       </div>
       <hr />
-      <AddToCart id={product.id} />
+      <ChangeQuantity id={product.id} />
     </div>
   );
 };

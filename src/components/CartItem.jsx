@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import DataContext from "./DataContext";
-import AddToCart from "./AddToCart";
+import ChangeQuantity from "./ChangeQuantity";
 
 const CartItem = ({ id, quantity }) => {
   const { data } = useContext(DataContext);
@@ -13,7 +13,7 @@ const CartItem = ({ id, quantity }) => {
       <p>{product.title}</p>
       <p>Quantity: {quantity}</p>
       <p>Subtotal: {subtotal}</p>
-      <AddToCart id={id} />
+      <ChangeQuantity id={id} />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import AddToCart from "./AddToCart";
+import ChangeQuantity from "./ChangeQuantity";
 import PropTypes from "prop-types";
 
 const Product = ({ className, product }) => {
@@ -12,7 +12,7 @@ const Product = ({ className, product }) => {
         {product.rating.rate} ({product.rating.count} votes)
       </h3>
       <hr />
-      <AddToCart id={product.id} />
+      <ChangeQuantity id={product.id} />
     </div>
   );
 };
