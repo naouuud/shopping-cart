@@ -6,14 +6,14 @@ const useData = (url) => {
     useContext(DataContext);
 
   useEffect(() => {
-    // let ignore = false;
+    let ignore = false;
     const fetchData = async () => {
       try {
         const fetchedData = await (await fetch(url)).json();
-        // if (!ignore) {
-        setData(fetchedData);
-        setError(null);
-        // }
+        if (!ignore) {
+          setData(fetchedData);
+          setError(null);
+        }
       } catch (error) {
         setError(new Error("Data fetching failed"));
         setData(null);
@@ -22,9 +22,9 @@ const useData = (url) => {
       }
     };
     !data && !error && fetchData();
-    // return () => {
-    //   ignore = true;
-    // };
+    return () => {
+      ignore = true;
+    };
   });
 };
 
