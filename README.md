@@ -1,8 +1,6 @@
 # Shopping Cart
 
-Implementing a shopping cart in React JS.
-
-NOT STYLED.
+Implementing a shopping cart in React JS (not styled).
 
 Learning goals/libraries used:
 * React Router
